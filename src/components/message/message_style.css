@@ -1,0 +1,9 @@
+.good_input{
+    color: indigo;
+    align-content: center;
+}
+.bad_input{
+    color: darkred;
+    align-content: end;
+}
+
