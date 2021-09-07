@@ -5,7 +5,7 @@
 Стилизовать компоненты через css (при желании можно использовать less или sass, однако для sass нужно дополнительно установить node-sass: документация CRA).
 Установить расширение React Devtools.
 
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
