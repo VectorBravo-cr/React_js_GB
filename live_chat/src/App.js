@@ -45,7 +45,6 @@ function App() {
         setMessageList(messageList => [...messageList, test])
     }
     const handleSetAuthor = (author) => {
-        console.log('Author: ', author)
         setAuthor(author)
         setShowInput((showInput)=>!showInput)
     }
@@ -62,7 +61,6 @@ function App() {
     }
 
     useEffect(()=>{
-        console.log(messageList[messageList.length-1])
         checkerDefAuthor(messageList[messageList.length-1])
 
     },[messageList])
