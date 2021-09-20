@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import button from '../../assests/styled_box.css'
+import {Button, Input} from "@material-ui/core";
 
 function InputMess({changeFunc}){
     const [message, setMessage] = useState('')
@@ -12,17 +12,18 @@ function InputMess({changeFunc}){
     },[])
     return(
         <>
-            <input
-
+            <Input
                 onChange={(e)=>{handleInputText(e)}}
                 value={message}
                 placeholder="Вводим текст"
                 type="text"
             />
-            <button onClick={()=>{
+            <Button
+                ariant="contained" color="primary" size='small'
+                onClick={()=>{
                 changeFunc(message)
             }
-            }>Пушим</button>
+            }>Пушим</Button>
         </>
     )
 }

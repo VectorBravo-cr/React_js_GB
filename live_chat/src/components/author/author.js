@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
+import {Button, TextField} from "@material-ui/core";
 
 function Author( {stateInput, handleSumbitAuthor} ){
     const [author, setAuthor] = useState('')
@@ -9,22 +10,27 @@ function Author( {stateInput, handleSumbitAuthor} ){
     return (
         <div>
             <div>
+                {author===''? '' :
                 <label>{author} - your nikname</label>
+                }
             </div>
             <div>
                 {stateInput?
                     <div>
-                        <input
+                        <TextField
+
+                            variant="outlined"
+                            size="small"
                             onChange={(e)=>{handleInputAuthor(e)}}
                             value={author}
                             placeholder="Вводим ник"
-                            type="text"/>
+                            />
 
-                        <button
+                        <Button variant="contained" color="primary" size='small' 
                             onClick={()=>{
                                 handleSumbitAuthor(author)}}>
                             Изменить ник
-                        </button>
+                        </Button>
                     </div>
                     :
                     ''
