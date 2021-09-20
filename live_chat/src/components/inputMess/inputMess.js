@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {Button, Input} from "@material-ui/core";
 
 function InputMess({changeFunc}){
@@ -7,8 +7,12 @@ function InputMess({changeFunc}){
     const handleInputText = (e) => {
         setMessage(e.target.value)
     }
+    const textInputRef = useRef(null);
+    const handleRef =() =>{
+        textInputRef.current.focus();
+    }
     useEffect(()=>{
-
+        handleRef()
     },[])
     return(
         <>
@@ -21,9 +25,9 @@ function InputMess({changeFunc}){
             <Button
                 ariant="contained" color="primary" size='small'
                 onClick={()=>{
-                changeFunc(message)
-            }
-            }>Пушим</Button>
+                    changeFunc(message)
+                }
+                }>Пушим</Button>
         </>
     )
 }

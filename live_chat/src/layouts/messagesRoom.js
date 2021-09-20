@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 
 import MessageList from "../components/messageList/messageList";
 import Author from "../components/author/author";
@@ -7,6 +7,7 @@ import {Card, CardActionArea, CardHeader,} from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
 function MessagesRoom(){
+
     const [idCount, setIdCount] = useState(3)
     const [author, setAuthor] = useState('default')
     const [showInput, setShowInput] = useState(false)
@@ -69,6 +70,9 @@ function MessagesRoom(){
 
     },[messageList])
 
+    useEffect(()=>{
+
+    },[])
 
     return(
         <>
@@ -83,7 +87,9 @@ function MessagesRoom(){
                     <Author stateInput={showInput} handleSumbitAuthor={handleSetAuthor}/>
                     <InputMess changeFunc={
                         hanlePusherMessage
-                    }/>
+                    }
+
+                    />
                 </CardActionArea>
 
             </Card>
