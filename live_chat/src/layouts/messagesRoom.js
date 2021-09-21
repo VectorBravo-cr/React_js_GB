@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import MessageList from "../components/messageList/messageList";
 import Author from "../components/author/author";
@@ -67,12 +67,8 @@ function MessagesRoom(){
 
     useEffect(()=>{
         checkerDefAuthor(messageList[messageList.length-1])
-
+        setMyHeader('HomeWork4 - ' + messageList.length + ' - sms')
     },[messageList])
-
-    useEffect(()=>{
-
-    },[])
 
     return(
         <>
@@ -83,15 +79,11 @@ function MessagesRoom(){
                 <CardContent>
                     <MessageList messageArr={messageList}/>
                 </CardContent>
-                <CardActionArea>
-                    <Author stateInput={showInput} handleSumbitAuthor={handleSetAuthor}/>
-                    <InputMess changeFunc={
-                        hanlePusherMessage
-                    }
-
-                    />
-                </CardActionArea>
-
+                <Author stateInput={showInput} handleSumbitAuthor={handleSetAuthor}/>
+                <InputMess changeFunc={
+                    hanlePusherMessage
+                }
+                />
             </Card>
         </>
     )

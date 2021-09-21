@@ -8,7 +8,7 @@ function Author( {stateInput, handleSumbitAuthor} ){
         setAuthor(e.target.value)
     }
     return (
-        <div>
+        <>
             <div>
                 {author===''? '' :
                 <label>{author} - your nikname</label>
@@ -36,7 +36,7 @@ function Author( {stateInput, handleSumbitAuthor} ){
                     ''
                 }
             </div>
-        </div>
+        </>
     )
 }
 

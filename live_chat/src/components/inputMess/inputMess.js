@@ -1,26 +1,27 @@
 import React from 'react'
 import {useState, useEffect, useRef} from 'react'
-import {Button, Input} from "@material-ui/core";
+import {Button, Grid, Input} from "@material-ui/core";
 
-function InputMess({changeFunc}){
+function InputMess({changeFunc}, props){
     const [message, setMessage] = useState('')
     const handleInputText = (e) => {
         setMessage(e.target.value)
     }
-    const textInputRef = useRef(null);
-    const handleRef =() =>{
-        textInputRef.current.focus();
-    }
+    const ref = useRef(null);
+
     useEffect(()=>{
-        handleRef()
+        ref?.current?.focus();
+        
     },[])
+
     return(
-        <>
+        <Grid>
             <Input
                 onChange={(e)=>{handleInputText(e)}}
                 value={message}
                 placeholder="Вводим текст"
                 type="text"
+                ref={ref}
             />
             <Button
                 ariant="contained" color="primary" size='small'
@@ -28,7 +29,7 @@ function InputMess({changeFunc}){
                     changeFunc(message)
                 }
                 }>Пушим</Button>
-        </>
+        </Grid>
     )
 }
 export default InputMess
