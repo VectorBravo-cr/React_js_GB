@@ -1,10 +1,10 @@
 import React from "react";
 
-function ProfileCard(){
+function ProfileCard({name}){
 
     return(
         <h3>
-            МОй профиль
+            {name}
         </h3>
     )
 }

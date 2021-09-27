@@ -7,12 +7,14 @@ import Main from "./pages/Main";
 import NotFound from "./pages/notFound/notFound";
 import "./assests/stile.css";
 import { Redirect } from 'react-router-dom';
+import { Provider } from "react-redux";
+import { store } from "./storage";
 
 
 
 function App() {
     return (
-        <div>
+        <Provider store={store}>
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/profile" component={Profile}/>
@@ -21,9 +23,9 @@ function App() {
                     <Route exact path="/" component={Main}/>
                     <Route component={NotFound} />
                 </Switch>
-                
+
             </BrowserRouter>
-        </div>
+        </Provider>
     );
 }
 

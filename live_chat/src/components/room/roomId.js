@@ -2,9 +2,9 @@ import React from "react";
 import {useEffect} from "react";
 import {useParams, useHistory, useRouteMatch} from "react-router-dom";
 import MessagesRoom from "../../layouts/messagesRoom";
-import {Card, Grid} from "@material-ui/core";
+import {Button, Card, Grid} from "@material-ui/core";
 
-function RoomId( ) {
+function RoomId() {
     const {roomId} = useParams();
     const history = useHistory();
 
@@ -14,16 +14,18 @@ function RoomId( ) {
         }
     }, []);
     return (
-            <Grid container>
-                <Grid md='2'>типа выровнил</Grid>
-                <Grid md='3'>
-                    <h3> Твоя комната- {roomId}</h3>
-                    <p> Правила чата и тп</p>
-                </Grid>
-                <Grid md='6'>
-                    <MessagesRoom/>
-                </Grid>
+        <Grid container>
+            <Grid md='2'>типа выровнил
+                <Button href={'/rooms'}> back to rooms </Button>
             </Grid>
+            <Grid md='3'>
+                <h3> Твоя комната- {roomId}</h3>
+                <p> Правила чата и тп</p>
+            </Grid>
+            <Grid md='6'>
+                <MessagesRoom/>
+            </Grid>
+        </Grid>
     )
 }
 
