@@ -24,7 +24,7 @@ function InputMess({changeFunc}, props){
                 ref={ref}
             />
             <Button
-                ariant="contained" color="primary" size='small'
+                variant="contained" color="primary" size='small'
                 onClick={()=>{
                     changeFunc(message)
                 }

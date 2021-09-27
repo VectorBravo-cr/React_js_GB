@@ -18,12 +18,14 @@ const Main = () => {
                 <CardContent>
                     <Grid container >
                         <Grid item md='6'>
-                            <Button variant="contained" color='primary'>
+                            <h5>Переход в</h5>
+                            <Button variant="contained" color='primary' href='/rooms/'>
                                 Чаты
                             </Button>
                         </Grid>
                         <Grid item md='6'>
                             {/*<Link to='/profile'>*/}
+                            <h5>Переход в</h5>
                                 <Button variant="contained" color='primary' href='/profile'>
                                     Профиль
                                 </Button>

@@ -14,7 +14,7 @@ function Profile(){
                 </CardHeader>
                 <CardContent>
                     <h3>
-                        *-*-*-*
+                        Это твой профиль)
                     </h3>
                 </CardContent>
             </Card>
