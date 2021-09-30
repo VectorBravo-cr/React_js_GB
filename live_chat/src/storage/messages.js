@@ -1,11 +1,15 @@
 import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM, CHANGE_STORE } from "./types/typesList";
 
 const initState = {
-    profileName: "Моя домашка номер 5",
-    useLocalStore: true,
+    usersRooms: [
+        { text: "ChatRoom1", id: 1 },
+        { text: "ChatRoom2", id: 2 },
+        { text: "ChatRoom3", id: 3 },
+    ],
+    stateHomeWork: "Моя домашка номер 6",
 };
 
-const reducer = (state = initState, { payload, type }) => {
+const reducerMess = (state = initState, { payload, type }) => {
     switch (type) {
         case ADD_ITEM:
             return {
@@ -24,13 +28,11 @@ const reducer = (state = initState, { payload, type }) => {
             return { ...state, profileName: payload };
         case CHANGE_STORE:
             return { ...state, useLocalStore: payload };
+        case "CLEAR_TODOLIST":
+            return { ...state, usersRooms: [] };
         default:
             return state;
     }
 };
 
-export default reducer;
-
-// store - a.k.a state - глобальный объект с данными для всего приложения
-// reducer - чистая фун-ия которая может менять наш store(a.k.a global state)
-// action - простой объект который имеет два поля (type, payload);
+export default reducerMess;
