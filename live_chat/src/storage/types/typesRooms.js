@@ -1,0 +1,8 @@
+//rooms
+const ADD_ROOM = "ADD_ROOM";
+const DELETE_ROOM = "DELETE_ROOM";
+const CLEAR_ROOMS = "CLEAR_ROOMS";
+const GET_ROOMS = "GET_ROOMS"
+//endRooms
+
+export {ADD_ROOM, CLEAR_ROOMS, DELETE_ROOM, GET_ROOMS}

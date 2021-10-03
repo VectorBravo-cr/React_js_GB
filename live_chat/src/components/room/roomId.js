@@ -13,6 +13,8 @@ function RoomId() {
             history.push("/rooms");
         }
     }, []);
+
+
     return (
         <Grid container>
             <Grid md='2'>типа выровнил
@@ -23,7 +25,7 @@ function RoomId() {
                 <p> Правила чата и тп</p>
             </Grid>
             <Grid md='6'>
-                <MessagesRoom/>
+                <MessagesRoom roomId={roomId}/>
             </Grid>
         </Grid>
     )

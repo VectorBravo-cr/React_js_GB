@@ -1,0 +1,4 @@
+const ADD_MESS = "ADD_MESS";
+const ADD_CHAT_MESS = "ADD_CHAT_MESS"
+
+export {ADD_CHAT_MESS, ADD_MESS}

@@ -6,7 +6,11 @@ import InputMess from "../components/inputMess/inputMess";
 import {Card, CardActionArea, CardHeader,} from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
-function MessagesRoom(){
+import {useDispatch, useSelector} from "react-redux";
+
+
+
+function MessagesRoom({roomId}){
 
     const [idCount, setIdCount] = useState(3)
     const [author, setAuthor] = useState('default')
@@ -28,6 +32,9 @@ function MessagesRoom(){
             }
         ]
     )
+
+    const messages = useSelector((state)=> state.messages.messagesStore)
+
 
     const hanlePusherMessage = (messageItem, flag=true) => {
         let test
@@ -69,6 +76,18 @@ function MessagesRoom(){
         checkerDefAuthor(messageList[messageList.length-1])
         setMyHeader('HomeWork4 - ' + messageList.length + ' - sms')
     },[messageList])
+
+    useEffect(()=>{
+        // setMessageList(messages)
+        console.log(messages)
+        console.log(roomId)
+        messages.forEach(function (item, i, z){
+            if (item.idRoom == roomId){
+                console.log('exist_room')
+                setMessageList(item.messages)
+            }
+        })
+    }, [])
 
     return(
         <>

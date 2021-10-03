@@ -28,7 +28,7 @@ const RoomList = ({roomArr, handleAddGroupItem, handleDellGroupItem, checkerStat
     return (
         <>
             <List>
-                {roomArr.map((selRoom, index) => {
+                {roomArr?.map((selRoom, index) => {
                         return (
                             <ListItem key={selRoom.id}>
                                 <Button onClick={() => history.push(`/rooms/${selRoom.id}`)}>{selRoom.name}</Button>

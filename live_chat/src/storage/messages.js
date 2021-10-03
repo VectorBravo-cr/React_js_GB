@@ -1,38 +1,74 @@
-import { ADD_ITEM, DELETE_ITEM, CHANGE_ITEM, CHANGE_STORE } from "./types/typesList";
+import {ADD_MESS, ADD_CHAT_MESS} from "./types/typesMessages";
+import RoomId from "../components/room/roomId";
 
 const initState = {
-    usersRooms: [
-        { text: "ChatRoom1", id: 1 },
-        { text: "ChatRoom2", id: 2 },
-        { text: "ChatRoom3", id: 3 },
-    ],
-    stateHomeWork: "Моя домашка номер 6",
-};
+    messagesStore: [
+        {
+            idRoom: 1, messages: [
+                {
+                    id: 1,
+                    author: 'tester',
+                    text: 'im push test text',
+                    time: '1:30:45'
+                },
+                {
+                    id: 2,
+                    author: 'tester',
+                    text: 'im push test text2',
+                    time: '1:30:46'
+                }
+            ],
+        },
+        {
+            idRoom: 2, messages: [
+                {
+                    id: 1,
+                    author: 'tester',
+                    text: 'im push test text',
+                    time: '2:30:45'
+                },
+                {
+                    id: 2,
+                    author: 'tester',
+                    text: 'im push test text2',
+                    time: '2:30:46'
+                }
+            ],
+        },
+        {
+            idRoom: 3, messages: [
+                {
+                    id: 1,
+                    author: 'tester',
+                    text: 'im push test text',
+                    time: '3:30:45'
+                },
+                {
+                    id: 2,
+                    author: 'tester',
+                    text: 'im push test text2',
+                    time: '3:30:46'
+                }
+            ],
+        }
+    ]
+}
 
-const reducerMess = (state = initState, { payload, type }) => {
+const reducer = (state = initState, {payload, type}) => {
     switch (type) {
-        case ADD_ITEM:
+        case ADD_MESS:
             return {
                 ...state,
-                usersRooms: [
-                    ...state.usersRooms,
-                    { id: state.usersRooms.length, text: payload },
+                messagesStore: [
+                    ...state.messagesStore,
+                    {idRoom: state.messagesStore.length, messages: payload},
                 ],
             };
-        case DELETE_ITEM:
-            return {
-                ...state,
-                usersRooms: state.usersRooms.filter((el) => el.id !== payload),
-            };
-        case CHANGE_ITEM:
-            return { ...state, profileName: payload };
-        case CHANGE_STORE:
-            return { ...state, useLocalStore: payload };
-        case "CLEAR_TODOLIST":
-            return { ...state, usersRooms: [] };
+        case ADD_CHAT_MESS:
+            return {...state.messagesStore};
         default:
             return state;
     }
 };
 
-export default reducerMess;
+export default reducer;

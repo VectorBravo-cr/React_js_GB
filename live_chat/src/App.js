@@ -8,8 +8,8 @@ import NotFound from "./pages/notFound/notFound";
 import "./assests/stile.css";
 import { Redirect } from 'react-router-dom';
 import { Provider } from "react-redux";
-import { store } from "./storage";
 
+import store from "./storage";
 
 
 function App() {
