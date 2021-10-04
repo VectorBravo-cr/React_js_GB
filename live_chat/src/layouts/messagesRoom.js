@@ -8,8 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {pushMess} from "../actions/messAction";
-
+// import {pushMess} from "../actions/messAction";
+import {checkStateRobot} from "../actions/messAction";
 
 function MessagesRoom({roomId}){
 
@@ -35,7 +35,7 @@ function MessagesRoom({roomId}){
     )
 
     const messages = useSelector((state)=> state.messages.messagesStore)
-
+    const dispatch = useDispatch();
 
     const handlePusherMessage = (messageItem, flag=true) => {
         let test
@@ -48,6 +48,7 @@ function MessagesRoom({roomId}){
                 time: Date().toLocaleString().split(" ")[4]
             }
         } else {
+            setShowInput((showInput)=>!showInput)
             test = {
                 id: idCount,
                 author: "ROBOT",
@@ -63,20 +64,25 @@ function MessagesRoom({roomId}){
         setShowInput((showInput)=>!showInput)
     }
 
-    const robot = () =>{
-        handlePusherMessage("INPUT YOUR NIKNAME", false)
-        setShowInput((showInput)=>!showInput)
-    }
+    // const robot = () =>{
+    //     handlePusherMessage("INPUT YOUR NIKNAME", false)
+    //     setShowInput((showInput)=>!showInput)
+    // }
 
-    const checkerDefAuthor = (last_message) => {
-        if (last_message.author === 'default'){
-            setTimeout(robot, 1500)
-        }
-    }
+    // const checkerDefAuthor = (last_message) => {
+    //     if (last_message.author === 'default'){
+    //         setTimeout(robot, 1500)
+    //     }
+    // }
 
     useEffect(()=>{
-        checkerDefAuthor(messageList[messageList.length-1])
+        // checkerDefAuthor(messageList[messageList.length-1])
+        // let test = messageList[messageList-1]
         setMyHeader('HomeWork4 - ' + messageList.length + ' - sms')
+        // dispatch(checkStateRobot(messageList[messageList.length-1]))
+        checkStateRobot(messageList[messageList.length-1], {handlePusherMessage})
+
+
     },[messageList])
 
     useEffect(()=>{

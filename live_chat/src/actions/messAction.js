@@ -14,3 +14,11 @@ export const pushMess = (mess) => {
     }
 };
 
+
+export const checkStateRobot = (mess, {handlePusherMessage}) =>  {
+    console.log(JSON.stringify(mess))
+    if (mess.author === 'default'){
+        setTimeout(handlePusherMessage("INPUT YOUR NIKNAME", false), 1500)
+    }
+};
+
