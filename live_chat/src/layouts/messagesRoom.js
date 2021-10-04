@@ -6,8 +6,9 @@ import InputMess from "../components/inputMess/inputMess";
 import {Card, CardActionArea, CardHeader,} from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
-import {useDispatch, useSelector} from "react-redux";
-
+import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+import {pushMess} from "../actions/messAction";
 
 
 function MessagesRoom({roomId}){
@@ -36,7 +37,7 @@ function MessagesRoom({roomId}){
     const messages = useSelector((state)=> state.messages.messagesStore)
 
 
-    const hanlePusherMessage = (messageItem, flag=true) => {
+    const handlePusherMessage = (messageItem, flag=true) => {
         let test
         setIdCount((idCount)=>idCount+1)
         if (flag){
@@ -55,6 +56,7 @@ function MessagesRoom({roomId}){
             }
         }
         setMessageList(messageList => [...messageList, test])
+
     }
     const handleSetAuthor = (author) => {
         setAuthor(author)
@@ -62,7 +64,7 @@ function MessagesRoom({roomId}){
     }
 
     const robot = () =>{
-        hanlePusherMessage("INPUT YOUR NIKNAME", false)
+        handlePusherMessage("INPUT YOUR NIKNAME", false)
         setShowInput((showInput)=>!showInput)
     }
 
@@ -79,11 +81,12 @@ function MessagesRoom({roomId}){
 
     useEffect(()=>{
         // setMessageList(messages)
-        console.log(messages)
+        console.log()
         console.log(roomId)
         messages.forEach(function (item, i, z){
-            if (item.idRoom == roomId){
-                console.log('exist_room')
+            console.log(item)
+            if (parseInt(item.idRoom) === parseInt(roomId)){
+                console.log('exist room, messArr: ', item.messages)
                 setMessageList(item.messages)
             }
         })
@@ -100,7 +103,7 @@ function MessagesRoom({roomId}){
                 </CardContent>
                 <Author stateInput={showInput} handleSumbitAuthor={handleSetAuthor}/>
                 <InputMess changeFunc={
-                    hanlePusherMessage
+                    handlePusherMessage
                 }
                 />
             </Card>

@@ -4,7 +4,7 @@ import RoomId from "../components/room/roomId";
 const initState = {
     messagesStore: [
         {
-            idRoom: 1, messages: [
+            idRoom: 0, messages: [
                 {
                     id: 1,
                     author: 'tester',
@@ -20,7 +20,7 @@ const initState = {
             ],
         },
         {
-            idRoom: 2, messages: [
+            idRoom: 1, messages: [
                 {
                     id: 1,
                     author: 'tester',
@@ -36,7 +36,7 @@ const initState = {
             ],
         },
         {
-            idRoom: 3, messages: [
+            idRoom: 2, messages: [
                 {
                     id: 1,
                     author: 'tester',
@@ -56,16 +56,18 @@ const initState = {
 
 const reducer = (state = initState, {payload, type}) => {
     switch (type) {
-        case ADD_MESS:
+        case ADD_CHAT_MESS:
             return {
                 ...state,
                 messagesStore: [
                     ...state.messagesStore,
-                    {idRoom: state.messagesStore.length, messages: payload},
+                    {idRoom: state.messagesStore.length, messages: []},
                 ],
             };
-        case ADD_CHAT_MESS:
+        case ADD_MESS:
+        {
             return {...state.messagesStore};
+        }
         default:
             return state;
     }
