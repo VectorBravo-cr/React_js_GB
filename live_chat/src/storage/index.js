@@ -1,18 +1,28 @@
-// import {combineReducers, createStore} from "redux";
 import { combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // localStorage
 
 import stors from "./store";
 import messages from "./messages";
 import rooms from "./rooms";
 
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+
 const reducers = combineReducers({
-    messages,
-    rooms,
+    rooms: rooms,
+    messages: messages,
     // stors
 })
 
-const store = createStore(reducers, composeWithDevTools());
+const persistedReducer = persistReducer(persistConfig, reducers);
 
-export default store;
+const store = createStore(persistedReducer, composeWithDevTools());
 
+const persistor = persistStore(store);
+
+export {store, persistor}
