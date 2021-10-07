@@ -7,6 +7,7 @@ import storage from 'redux-persist/lib/storage'; // localStorage
 import stors from "./store";
 import messages from "./messages";
 import rooms from "./rooms";
+import weather from "./weather"
 
 const persistConfig = {
     key: 'root',
@@ -16,6 +17,7 @@ const persistConfig = {
 const reducers = combineReducers({
     rooms: rooms,
     messages: messages,
+    weather: weather,
     // stors
 })
 

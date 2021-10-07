@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {Card, CardHeader, CardContent, Grid, Button} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import styles from "../assests/jss/sil_material/views/dashboardStyle.js"
+import WeatherApi from "../components/apiComponent/apiComponent";
 
 const useStyles = makeStyles(styles);
 
@@ -31,6 +32,13 @@ const Main = () => {
                                 </Button>
                             {/*</Link>*/}
                         </Grid>
+                        <Grid item md='6'>
+                            {/*<Link to='/profile'>*/}
+                            <h5>Pogoda api</h5>
+                                <WeatherApi/>
+                            {/*</Link>*/}
+                        </Grid>
+
                     </Grid>
                 </CardContent>
             </Card>
